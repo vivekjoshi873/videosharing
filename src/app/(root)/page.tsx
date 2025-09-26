@@ -1,9 +1,15 @@
-import React from 'react'
-
+import React from "react";
+import Header from "../../../components/Header";
 const Page = () => {
   return (
-    <div>Welcome to loom clone</div>
-  )
-}
+    <main className="wrapper page">
+      <Header
+        subHeader="All Video"
+        title="Public Library"
+      />
+      <h1>Welcome to loom clone</h1>
+    </main>
+  );
+};
 
-export default Page
+export default Page;
