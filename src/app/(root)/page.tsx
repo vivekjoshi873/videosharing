@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../../../components/Header";
+import VideoCard from "../../../components/VideoCard";
 const Page = () => {
   return (
     <main className="wrapper page">
@@ -8,6 +9,7 @@ const Page = () => {
         title="Public Library"
       />
       <h1>Welcome to loom clone</h1>
+      <VideoCard/>
     </main>
   );
 };

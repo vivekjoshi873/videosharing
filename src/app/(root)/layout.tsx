@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Navbar from "../../../components/Navbar";
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Navbar />
@@ -9,4 +9,4 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     </div>
   );
 };
-export default Layout;
+export default layout;
