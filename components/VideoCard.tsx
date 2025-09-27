@@ -46,6 +46,11 @@ function VideoCard({
             <span>{views}</span>
           </aside>
         </div>
+        <h2>{title}-{" "}{createdAt.toLocaleDateString('en-US',{
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        })}</h2>
       </article>
     </Link>
   );
