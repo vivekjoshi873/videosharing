@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://vivek-s-workspace-qdhler.ap-southeast-2.xata.sh/db/videosharing",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
