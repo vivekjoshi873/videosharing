@@ -1,11 +1,55 @@
-import React from 'react'
+import { on } from "events";
+import React from "react";
 
-function FormField() {
+function FormField({
+  id,
+  label,
+  type = "text",
+  placeholder,
+  as = "input",
+  value,
+  onChange,
+  options = [],
+}: FormFieldProps) {
+  const InputToRender = ({ type }: { type: string }) => {
+    if (type === "textarea")
+      return (
+        <textarea
+          id={id}
+          name="id"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+      );
+    else if (type === "select")
+      return (
+        <select id={id} name="id" value={value} onChange={onChange}>
+          {options.map(({ label, value }) => (
+            <option key={label} value={value}>
+              {label}
+            </option>
+          ))}
+        </select>
+      );
+    else {
+      return (
+        <input
+          id={id}
+          name="id"
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+        />
+      );
+    }
+  };
   return (
-    <div>
-      FileField
+    <div className="form-field">
+      <label htmlFor={id}>{label}</label>
+      <InputToRender type={as} />
     </div>
-  )
+  );
 }
 
-export default FormField
+export default FormField;

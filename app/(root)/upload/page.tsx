@@ -22,10 +22,31 @@ function page() {
         <FormField
           id="title"
           label="Title"
+          placeholder={"Enter a clear and concise video title"}
           value={formData.title}
           onChange={handleInputChange}
         />
+        <FormField
+          id="description"
+          label="Description"
+          placeholder={"Describe what this video is about "}
+          value={formData.description}
+          as="textarea"
+          onChange={handleInputChange}
+        />
         <FileInput />
+        <FileInput />
+        <FormField
+          id="visibility"
+          label="Visibility"
+          value={formData.visibility}
+          as="select"
+          options={[
+            { label: "Public", value: "public" },
+            { label: "Private", value: "private" },
+          ]}
+          onChange={handleInputChange}
+        />
       </form>
     </div>
   );
