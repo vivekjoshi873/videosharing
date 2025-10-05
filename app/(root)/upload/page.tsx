@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import FormField from "../../../components/FormField";
 import FileInput from "../../../components/FileInput";
+import { MAX_THUMBNAIL_SIZE, MAX_VIDEO_SIZE } from "../../../constants";
+import { useFileInput } from "../../../lib/hooks/useFileInput";
 function page() {
   const [error, setError] = useState<null | string>(null);
   const [formData, setFormData] = useState({
@@ -9,8 +11,8 @@ function page() {
     description: "",
     visibility: "",
   });
-  const video = {}
-  const thumbnail = {}
+  const video = useFileInput(MAX_VIDEO_SIZE); 
+  const thumbnail = useFileInput(MAX_THUMBNAIL_SIZE );
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
