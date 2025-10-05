@@ -9,6 +9,8 @@ function page() {
     description: "",
     visibility: "",
   });
+  const video = {}
+  const thumbnail = {}
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
@@ -34,18 +36,38 @@ function page() {
           as="textarea"
           onChange={handleInputChange}
         />
-        <FileInput />
-        <FileInput />
+        <FileInput 
+        id="video"
+        label="Video"
+        accept="video/*"
+        file={video.file}
+        previewUrl={video.previewUrl}
+        inputRef={video.inputRef}
+        onChange={video.handleFileChange}
+        onReset={video.resetFile}
+        type="video"
+      />
+        <FileInput 
+        id="thumbnail"
+        label="Thumbnail"
+        accept="image/*"
+        file={thumbnail.file}
+        previewUrl={thumbnail.previewUrl}
+        inputRef={thumbnail.inputRef}
+        onChange={thumbnail.handleFileChange}
+        onReset={thumbnail.resetFile}
+        type="image"
+      />
         <FormField
-          id="visibility"
+         id="visibility"
           label="Visibility"
+          onChange={handleInputChange}
           value={formData.visibility}
           as="select"
           options={[
-            { label: "Public", value: "public" },
-            { label: "Private", value: "private" },
+            { value: "public", label: "Public" },
+            { value: "private", label: "Private" },
           ]}
-          onChange={handleInputChange}
         />
       </form>
     </div>

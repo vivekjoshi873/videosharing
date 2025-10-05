@@ -1,11 +1,43 @@
-import React from 'react'
+import Image from "next/image";
+import React from "react";
 
-function FileInput() {
+function FileInput({
+  id,
+  label,
+  accept,
+  file,
+  previewUrl,
+  inputRef,
+  onChange,
+  onReset,
+  type,
+}: FileInputProps) {
   return (
-    <div>
-      
-    </div>
-  )
+    <section className="file-input">
+      <label htmlFor={id}>{label}</label>
+      <input
+        type="file"
+        id={id}
+        accept={accept}
+        ref={inputRef}
+        hidden
+        onChange={onChange}
+      />
+      {!previewUrl ? (
+        <figure>
+          <Image
+            src="/assets/icons/upload.svg"
+            alt="upload"
+            width={24}
+            height={24}
+          />
+          <p>Click to Upload your {id}</p>
+        </figure>
+      ) : (
+        <div></div>
+      )}
+    </section>
+  );
 }
 
-export default FileInput
+export default FileInput;
