@@ -28,8 +28,8 @@ function FileInput({
           <Image
             src="/assets/icons/upload.svg"
             alt="upload"
-            width={24}
-            height={24}
+            width={18}
+            height={18}
           />
           <p>Click to Upload your {id}</p>
         </figure>
