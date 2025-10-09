@@ -36,11 +36,9 @@ export const getEnv = (key: string): string => {
 
 // API fetch helper with required Bunny CDN options
 export const apiFetch = async <T = Record<string, unknown>>(
-  url: string,
-  options: Omit<ApiFetchOptions, "bunnyType"> & {
-    bunnyType: "stream" | "storage";
-  }
-): Promise<T> => {
+url: string, p0: string, p1: { method: string; bunnyType: string; body: { title: string; description: string; }; }, options: Omit<ApiFetchOptions, "bunnyType"> & {
+  bunnyType: "stream" | "storage";
+}): Promise<T> => {
   const {
     method = "GET",
     headers = {},
