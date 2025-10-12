@@ -1,7 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { ilike, sql } from "drizzle-orm";
-// import { videos } from "../drizzle/schema";
+import { videos } from "../drizzle/schema";
 import { DEFAULT_VIDEO_CONFIG, DEFAULT_RECORDING_CONFIG } from "../constants";
 
 export function cn(...inputs: ClassValue[]) {
@@ -36,9 +36,11 @@ export const getEnv = (key: string): string => {
 
 // API fetch helper with required Bunny CDN options
 export const apiFetch = async <T = Record<string, unknown>>(
-url: string, p0: string, p1: { method: string; bunnyType: string; body: { title: string; description: string; }; }, options: Omit<ApiFetchOptions, "bunnyType"> & {
-  bunnyType: "stream" | "storage";
-}): Promise<T> => {
+  url: string,
+  options: Omit<ApiFetchOptions, "bunnyType"> & {
+    bunnyType: "stream" | "storage";
+  }
+): Promise<T> => {
   const {
     method = "GET",
     headers = {},
@@ -52,6 +54,7 @@ url: string, p0: string, p1: { method: string; bunnyType: string; body: { title:
       ? "BUNNY_STREAM_ACCESS_KEY"
       : "BUNNY_STORAGE_ACCESS_KEY"
   );
+
 
   const requestHeaders = {
     ...headers,
